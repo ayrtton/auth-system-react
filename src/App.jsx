@@ -1,10 +1,10 @@
 import './App.css'
-import LoginPage from './pages/jsx/LoginPage'
+import AppRoutes from './AppRoutes'
 
 function App() {
     return (
         <>
-            <LoginPage />
+            <AppRoutes />
         </>
     )
 }
