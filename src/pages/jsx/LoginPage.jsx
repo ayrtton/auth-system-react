@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/auth"
 import styles from "../css/LoginPage.module.css"
 
 const LoginPage = () => {
-    const { authenticated, login } = useContext(AuthContext)
+    const { login } = useContext(AuthContext)
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -20,7 +20,6 @@ const LoginPage = () => {
         <div className={styles.container}>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.title} id="title">Sign In</div>
-                <p>{String(authenticated)}</p>
                 <input className={styles.textInput} type="email" name="email" id="email" placeholder="Email" required
                     value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input className={styles.textInput} type="password" name="password" id="password" placeholder="Password" required
