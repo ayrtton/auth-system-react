@@ -1,6 +1,8 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import styles from "../css/LoginPage.module.css"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
     const { login } = useContext(AuthContext)
@@ -10,8 +12,6 @@ const LoginPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        console.log("Submit", { email, password })
 
         login(email, password)
     }
@@ -26,6 +26,7 @@ const LoginPage = () => {
                     value={password} onChange={(e) => setPassword(e.target.value)} />
                 <input className={styles.button} type="submit" value="Sign In" />
             </form>
+            <ToastContainer limit={1}/>
         </div>
     )
 }
