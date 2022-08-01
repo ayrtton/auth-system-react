@@ -35,18 +35,24 @@ export const AuthProvider = ({ children }) => {
     }
 
     const login = async (email, password) => {
-        const response = await callLoginEndpoint(email, password)
+        const errors = { value: "" }
+        const response = await callLoginEndpoint(email, password, errors)
 
         if (response) {
             redirectUser(response)
+        } else {
+            return errors.value
         }
     }
 
     const signUp = async (name, email, password, passwordConfirmation) => {
-        const response = await callSignUpEndpoint(name, email, password, passwordConfirmation)
+        const errors = { value: "" }
+        const response = await callSignUpEndpoint(name, email, password, passwordConfirmation, errors)
 
         if (response) {
             redirectUser(response)
+        } else {
+            return errors.value
         }
     }
 

@@ -1,32 +1,23 @@
 import axios from "axios"
-import { toast } from "react-toastify"
 
 export const api = axios.create({
     baseURL: "https://laravel-heroku-auth.herokuapp.com/api/v1"
 })
 
-const displayToast = (error) => {
-    toast.error(error, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    })
-}
-
-export const callLoginEndpoint = async (email, password) => {
+export const callLoginEndpoint = async (email, password, errors) => {
     return api.post("/login", { email, password }).catch(function (error) {
         if (error.response) {
-            displayToast(error.response.data.message)
+            errors.value = error.response.data.message
         }
     })
 }
 
-export const callSignUpEndpoint = async (name, email, password, password_confirmation) => {
-    return api.post("/register", { name, email, password, password_confirmation })
+export const callSignUpEndpoint = async (name, email, password, password_confirmation, errors) => {
+    return api.post("/register", { name, email, password, password_confirmation }).catch(function (error) {
+        if (error.response) {
+            errors.value = error.response.data.errors
+        }
+    })
 }
 
 export const getUsers = async () => {
