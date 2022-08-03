@@ -31,7 +31,12 @@ export const AuthProvider = ({ children }) => {
         api.defaults.headers.Authorization = `Bearer ${token}`
 
         setUser(loggedUser)
-        navigate("/")
+
+        if(loggedUser.email_verified_at === undefined || loggedUser.email_verified_at === null) {
+            navigate("/emailverification")
+        } else {
+            navigate("/")
+        }
     }
 
     const login = async (email, password) => {

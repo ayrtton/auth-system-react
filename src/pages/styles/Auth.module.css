@@ -65,12 +65,12 @@ hr {
     margin: 1em 0 0;
 }
 
-#link {
+.link {
     color: #2020b4;
     text-decoration: none;
 }
 
-#link:hover {
+.link:hover {
     color: #2020b4d5;
 }
 
@@ -78,4 +78,8 @@ hr {
     margin-top: 4px;
     font-size: 14px;
     color: rgb(172, 0, 0);
+}
+
+.center {
+    text-align: center;
 }

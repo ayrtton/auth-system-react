@@ -29,7 +29,7 @@ const LoginPage = () => {
                 {errorMessage && <div className={styles.error}>{errorMessage}</div>}
                 <input className={styles.button} type="submit" value="Login" />
                 <hr />
-                <div id={styles.switch}>Don't have an account? <a id={styles.link} href="/signup">Sign Up</a></div>
+                <div id={styles.switch}>Don't have an account? <a className={styles.link} href="/signup">Sign Up</a></div>
             </form>
         </div>
     )
