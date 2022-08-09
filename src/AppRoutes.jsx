@@ -2,15 +2,16 @@ import { useContext } from "react"
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom"
 import { AuthContext, AuthProvider } from "./contexts/auth"
 import EmailVerificationPage from "./pages/scripts/EmailVerificationPage"
-import HomePage from "./pages/scripts/HomePage"
+import PrivatePage from "./pages/scripts/PrivatePage"
 import LoginPage from "./pages/scripts/LoginPage"
 import SignUpPage from "./pages/scripts/SignUpPage"
+import HomePage from "./pages/scripts/HomePage"
 
 const AppRoutes = () => {
     const Private = ({ children }) => {
         const { authenticated, loading } = useContext(AuthContext)
 
-        if(loading) {
+        if (loading) {
             return <div className="loading">Loading...</div>
         }
 
@@ -25,10 +26,13 @@ const AppRoutes = () => {
         <Router>
             <AuthProvider>
                 <Routes>
-                    <Route exact path="/login" element={<LoginPage />}></Route>
-                    <Route exact path="/signup" element={<SignUpPage />}></Route>
-                    <Route exact path="/emailverification" element={<EmailVerificationPage />}></Route>
-                    <Route exact path="/" element={<Private><HomePage /></Private>}></Route>
+                    <Route exact path="/" element={<HomePage />}>
+                        <Route exact path=":status/:message" element={<LoginPage />}></Route>
+                    </Route>
+                    <Route exact path="/login" element={<LoginPage />} />
+                    <Route exact path="/signup" element={<SignUpPage />} />
+                    <Route exact path="/emailverification" element={<EmailVerificationPage />} />
+                    <Route exact path="/privatepage" element={<Private><PrivatePage /></Private>} />
                 </Routes>
             </AuthProvider>
         </Router>

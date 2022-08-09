@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         if(loggedUser.email_verified_at === undefined || loggedUser.email_verified_at === null) {
             navigate("/emailverification")
         } else {
-            navigate("/")
+            navigate("/privatepage")
         }
     }
 

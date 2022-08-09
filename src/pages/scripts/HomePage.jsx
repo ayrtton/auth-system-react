@@ -1,18 +1,18 @@
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/auth"
+import { useParams } from "react-router-dom"
+import styles from "../styles/Auth.module.css"
 
 const HomePage = () => {
-    const { logout } = useContext(AuthContext)
-
-    const handleLogout = () => {
-        logout()
-    }
+    const params = useParams()
 
     return (
-        <>
-            <button onClick={handleLogout}>Logout</button>
-            <p>Under Construction...</p>
-        </>
+        <div className={styles.container}>
+            {Object.keys(params).length > 0 &&
+                <div className={styles.form}>
+                    {params.message} <br />
+                    Click <a className={styles.link} href="/login">here</a> to login...
+                </div>
+            }
+        </div>
     )
 }
 
