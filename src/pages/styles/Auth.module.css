@@ -80,6 +80,10 @@ hr {
     color: rgb(172, 0, 0);
 }
 
+.forgotPassword {
+    float: right;
+}
+
 .center {
     text-align: center;
 }

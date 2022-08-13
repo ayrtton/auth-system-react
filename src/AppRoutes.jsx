@@ -6,6 +6,7 @@ import PrivatePage from "./pages/scripts/PrivatePage"
 import LoginPage from "./pages/scripts/LoginPage"
 import SignUpPage from "./pages/scripts/SignUpPage"
 import HomePage from "./pages/scripts/HomePage"
+import PasswordResetPage from "./pages/scripts/PasswordResetPage"
 
 const AppRoutes = () => {
     const Private = ({ children }) => {
@@ -31,7 +32,8 @@ const AppRoutes = () => {
                     </Route>
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/signup" element={<SignUpPage />} />
-                    <Route exact path="/emailverification" element={<EmailVerificationPage />} />
+                    <Route exact path="/email/verification" element={<EmailVerificationPage />} />
+                    <Route exact path="/password/reset" element={<PasswordResetPage />} />
                     <Route exact path="/privatepage" element={<Private><PrivatePage /></Private>} />
                 </Routes>
             </AuthProvider>
