@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { api, callLoginEndpoint, callSignUpEndpoint } from "../services/api"
+import { api, callLoginEndpoint, callResendVerificationMailEndpoint, callSignUpEndpoint } from "../services/api"
 
 export const AuthContext = createContext()
 
@@ -71,8 +71,15 @@ export const AuthProvider = ({ children }) => {
         navigate("/login")
     }
 
+    const resendVerificationMail = () => {
+        callResendVerificationMailEndpoint()
+    }
+
     return (
-        <AuthContext.Provider value={{ authenticated: !!user, user, loading, login, signUp, logout }}>
+        <AuthContext.Provider value={{ 
+            authenticated: !!user, user, loading, login, signUp, logout, 
+            resendVerificationMail 
+        }}>
             {children}
         </AuthContext.Provider>
     )

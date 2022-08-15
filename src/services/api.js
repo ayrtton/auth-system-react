@@ -20,6 +20,10 @@ export const callSignUpEndpoint = async (name, email, password, password_confirm
     })
 }
 
+export const callResendVerificationMailEndpoint = async() => {
+    return api.post("/resend-verification-mail")
+}
+
 export const getUsers = async () => {
     return api.get("/users")
 }
