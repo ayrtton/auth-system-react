@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { api, callLoginEndpoint, callResendVerificationMailEndpoint, callSignUpEndpoint } from "../services/api"
+import { api, callLoginEndpoint, callLogoutEndpoint, callResendVerificationMailEndpoint, callSignUpEndpoint } from "../services/api"
 
 export const AuthContext = createContext()
 
@@ -62,6 +62,8 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
+        callLogoutEndpoint()
+        
         localStorage.removeItem("user")
         localStorage.removeItem("token")
 
