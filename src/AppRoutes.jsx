@@ -32,8 +32,8 @@ const AppRoutes = () => {
                     </Route>
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/signup" element={<SignUpPage />} />
-                    <Route exact path="/email/verification" element={<EmailVerificationPage />} />
                     <Route exact path="/password/reset" element={<PasswordResetPage />} />
+                    <Route exact path="/email/verification" element={<Private><EmailVerificationPage /></Private>} />
                     <Route exact path="/privatepage" element={<Private><PrivatePage /></Private>} />
                 </Routes>
             </AuthProvider>
