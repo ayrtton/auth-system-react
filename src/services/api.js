@@ -28,6 +28,14 @@ export const callResendVerificationMailEndpoint = async () => {
     return api.post("/resend-verification-mail")
 }
 
+export const callSendPasswordResetMailEndpoint = async (email, errors) => {
+    return api.post("/password-reset-mail", { email }).catch(function (error) {
+        if (error.response) {
+            errors.value = error.response.data.message
+        }
+    })
+}
+
 export const getUsers = async () => {
     return api.get("/users")
 }

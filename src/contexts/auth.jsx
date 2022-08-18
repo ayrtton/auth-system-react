@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { api, callLoginEndpoint, callLogoutEndpoint, callResendVerificationMailEndpoint, callSignUpEndpoint } from "../services/api"
+import { api, callLoginEndpoint, callLogoutEndpoint, callResendVerificationMailEndpoint, callSendPasswordResetMailEndpoint, callSignUpEndpoint } from "../services/api"
 
 export const AuthContext = createContext()
 
@@ -77,10 +77,21 @@ export const AuthProvider = ({ children }) => {
         callResendVerificationMailEndpoint()
     }
 
+    const sendPasswordResetMail = async(email) => {
+        const errors = { value: "" }
+        const response = await callSendPasswordResetMailEndpoint(email, errors)
+
+        if(response) {
+            return undefined
+        } else {
+            return errors.value
+        }
+    }
+
     return (
         <AuthContext.Provider value={{ 
             authenticated: !!user, user, loading, login, signUp, logout, 
-            resendVerificationMail 
+            resendVerificationMail, sendPasswordResetMail
         }}>
             {children}
         </AuthContext.Provider>
