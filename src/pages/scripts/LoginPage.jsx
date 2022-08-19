@@ -26,7 +26,7 @@ const LoginPage = () => {
                     value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input className={styles.textInput} type="password" name="password" id="password" placeholder="Password" required
                     value={password} onChange={(e) => setPassword(e.target.value)} />
-                <div><a className={styles.forgotPassword + ' ' + styles.link} href="/password/reset">Forgot password?</a></div>
+                <div><a className={styles.forgotPassword + ' ' + styles.link} href="/password/reset/mail">Forgot password?</a></div>
                 {errorMessage && <div className={styles.error}>{errorMessage}</div>}
                 <input className={styles.button} type="submit" value="Login" />
                 <hr />

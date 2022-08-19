@@ -6,6 +6,7 @@ import PrivatePage from "./pages/scripts/PrivatePage"
 import LoginPage from "./pages/scripts/LoginPage"
 import SignUpPage from "./pages/scripts/SignUpPage"
 import HomePage from "./pages/scripts/HomePage"
+import PasswordResetMailPage from "./pages/scripts/PasswordResetMailPage"
 import PasswordResetPage from "./pages/scripts/PasswordResetPage"
 
 const AppRoutes = () => {
@@ -32,6 +33,7 @@ const AppRoutes = () => {
                     </Route>
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/signup" element={<SignUpPage />} />
+                    <Route exact path="/password/reset/mail" element={<PasswordResetMailPage />} />
                     <Route exact path="/password/reset" element={<PasswordResetPage />} />
                     <Route exact path="/email/verification" element={<Private><EmailVerificationPage /></Private>} />
                     <Route exact path="/privatepage" element={<Private><PrivatePage /></Private>} />
