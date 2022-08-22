@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import styles from "../styles/Auth.module.css"
 
@@ -7,6 +7,10 @@ const PasswordResetMailPage = () => {
     const [email, setEmail] = useState("")
     const [isSent, setIsSent] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
+
+    useEffect(() => {
+        document.title = "Password Reset Email"
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import styles from "../styles/Auth.module.css"
 
@@ -7,6 +7,10 @@ const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+
+    useEffect(() => {
+        document.title = "Login"
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()

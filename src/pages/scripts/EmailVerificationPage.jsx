@@ -1,10 +1,14 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import styles from "../styles/Auth.module.css"
 
 const EmailVerificationPage = () => {
     const { resendVerificationMail } = useContext(AuthContext)
     const [ isSent, setIsSent] = useState(false)
+
+    useEffect(() => {
+        document.title = "Email Verification"
+    }, [])
 
     const handleClick = () => {
         resendVerificationMail()

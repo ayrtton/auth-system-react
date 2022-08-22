@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/auth"
 import styles from "../styles/Auth.module.css"
 
@@ -10,6 +10,10 @@ const SignUpPage = () => {
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [errorMessages, setErrorMessages] = useState("")
+
+    useEffect(() => {
+        document.title = "Sign Up"
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
