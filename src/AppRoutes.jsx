@@ -29,12 +29,14 @@ const AppRoutes = () => {
             <AuthProvider>
                 <Routes>
                     <Route exact path="/" element={<HomePage />}>
-                        <Route exact path=":status/:message" element={<LoginPage />}></Route>
+                        <Route exact path=":status/:message"></Route>
                     </Route>
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/signup" element={<SignUpPage />} />
                     <Route exact path="/password/reset/mail" element={<PasswordResetMailPage />} />
-                    <Route exact path="/password/reset" element={<PasswordResetPage />} />
+                    <Route exact path="/password/reset" element={<PasswordResetPage />}>
+                        <Route exact path=":token"></Route>
+                    </Route>
                     <Route exact path="/email/verification" element={<Private><EmailVerificationPage /></Private>} />
                     <Route exact path="/privatepage" element={<Private><PrivatePage /></Private>} />
                 </Routes>

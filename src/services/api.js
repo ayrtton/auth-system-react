@@ -36,6 +36,14 @@ export const callSendPasswordResetMailEndpoint = async (email, errors) => {
     })
 }
 
+export const callResetPasswordEndpoint = async (email, token, password, password_confirmation, errors) => {
+    return api.post("/password-reset", { email, token, password, password_confirmation }).catch(function (error) {
+        if (error.response) {
+            errors.value = error.response.data.message
+        }
+    })
+}
+
 export const getUsers = async () => {
     return api.get("/users")
 }
