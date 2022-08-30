@@ -22,7 +22,11 @@ const PasswordResetPage = () => {
         var errors = resetPassword(email, params.token, password, passwordConfirmation)
 
         errors.then(function (data) {
-            setErrorMessage(data)
+            if (data !== undefined) {
+                setErrorMessage(data)
+            } else {
+                setIsReset(true)
+            }
         })
     }
 
