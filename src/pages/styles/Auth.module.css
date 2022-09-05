@@ -76,13 +76,14 @@ hr {
 }
 
 .error {
-    margin-top: 4px;
+    margin-top: 5px;
     font-size: 14px;
     color: rgb(172, 0, 0);
 }
 
 .forgotPassword {
-    float: right;
+    display: block;
+    text-align: right;
 }
 
 .center {

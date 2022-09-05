@@ -51,7 +51,7 @@ const SignUpPage = () => {
                 }
                 <input className={styles.button} type="submit" value="Sign Up" />
                 <hr />
-                <div id={styles.switch}>Already have an account? <a className={styles.link} href="/login">Login</a></div>
+                <div id={styles.switch}>Already have an account? <a className={styles.link} href="/">Login</a></div>
             </form>
         </div>
     )

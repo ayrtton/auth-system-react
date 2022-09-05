@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
         api.defaults.headers.Authorization = null
         setUser(null)
 
-        navigate("/login")
+        navigate("/")
     }
 
     const resendVerificationMail = () => {
